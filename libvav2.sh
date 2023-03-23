@@ -13,9 +13,11 @@ gpu_vendor=$(glxinfo | grep -m 1 -E -i "OpenGL vendor|OpenGL renderer string" | 
 case $gpu_vendor in
     Intel)
         export LIBVA_DRIVER_NAME=iHD
+        export VDPAU_DRIVER=va_gl
         ;;
     NVIDIA)
         export LIBVA_DRIVER_NAME=nvidia
+        export VDPAU_DRIVER=nvidia
         ;;
     *)
         echo "Unsupported GPU vendor: $gpu_vendor"
